@@ -48,6 +48,7 @@
   --clr-dark-cyan: hsl(176, 72%, 28%);
   --clr-black: hsla(0, 0%, 0%, 1);
   --clr-dark-gray: hsl(0, 0%, 48%);
+  --clr-medium-gray: hsl(0, 1%, 70%);
   --clr-light-gray-bg: hsl(0, 0%, 98%);
   --clr-white: hsla(0, 0%, 100%, 1);
 }
@@ -56,9 +57,9 @@ body {
   background-color: var(--clr-light-gray-bg);
   color: var(--clr-dark-gray);
   font-family: var(--ff-main);
-  font-size: var(--fs-14);
+  font-size: var(--fs-16);
   font-weight: var(--fw-regular);
-  line-height: 1.875;
+  line-height: 1.7;
   text-align: left;
 }
 
@@ -87,6 +88,11 @@ img {
 
 .title {
   font-size: var(--fs-20);
+  line-height: 1.25;
+}
+
+.text {
+  font-size: var(--fs-14);
 }
 
 .data__num {
@@ -113,6 +119,32 @@ img {
 /* Buttons & inputs */
 /* ================== */
 
+.btn {
+  text-decoration: none;
+  background: var(--clr-moderate-cyan);
+  color: var(--clr-white);
+  font-size: var(--fs-16);
+  font-weight: var(--fw-bold);
+  padding: 1em 2.85em;
+  border-radius: 2em;
+  display: inline-block;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--clr-dark-cyan);
+}
+
+.bookmark-btn {
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bookmark-btn .bookmark-text {
+  display: none;
+}
+
 /* ================== */
 /* Utility styles */
 /* ================== */
@@ -120,6 +152,165 @@ img {
 /* ================== */
 /* SECTIONS */
 /* ================== */
+
+/* Header */
+.header-area {
+  position: relative;
+}
+
+.desktop-img {
+  display: none;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 2em 1.5em;
+}
+
+.header__row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.toggle-nav {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 0.25em;
+}
+
+.nav {
+  display: none;
+}
+
+/* Main */
+.main__container {
+  margin: -5em 1.5em 0;
+}
+
+.box {
+  background: var(--clr-white);
+  border-radius: 0.5em;
+  margin: 1.5em auto;
+  padding: 2.5em 1.5em;
+}
+
+/* Box A */
+.box--a {
+  position: relative;
+
+  text-align: center;
+}
+
+.logo-2 {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.box--a .title {
+  margin: 1em auto 0;
+  width: 80%;
+}
+
+.box--a .text {
+  margin-top: 1em;
+}
+
+.btn-area {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 1.5em;
+}
+
+.bookmark-btn {
+  padding-top: 0.5em;
+}
+
+/* Box B */
+.box--b {
+  text-align: center;
+  padding: 2em 1.5em;
+}
+
+.data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.data__item {
+  position: relative;
+  padding-bottom: 1.5em;
+  width: 100%;
+}
+
+.data__item:nth-child(1):after,
+.data__item:nth-child(2):after {
+  content: '';
+
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 80px;
+  height: 1px;
+  background: var(--clr-medium-gray);
+
+  transform: translateX(-50%);
+}
+
+/* Box C */
+.box__copy .text {
+  margin: 1.5em;
+}
+
+.box--c {
+  margin-bottom: 4.75em;
+}
+
+.box__options {
+  margin-top: 2em;
+}
+
+.option {
+  margin-top: 1.5em;
+  border: 1px solid var(--clr-medium-gray);
+  border-radius: 0.5em;
+  padding: 1.5em;
+}
+
+.option__copy {
+  margin-top: 1.5em;
+}
+
+.option .option__num {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5em;
+
+  margin-top: 1.5em;
+}
+
+.option .option__num .text {
+  font-size: var(--fs-15);
+}
+
+.option .btn-3 {
+  font-size: var(--fs-14);
+  padding: 1em 2.25em;
+  margin-top: 1.5em;
+}
 
 /* Footer */
 
