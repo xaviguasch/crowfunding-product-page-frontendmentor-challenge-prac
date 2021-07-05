@@ -56,7 +56,7 @@ body {
   background-color: var(--clr-light-gray-bg);
   color: var(--clr-dark-gray);
   font-family: var(--ff-main);
-  font-size: var(--fs-16);
+  font-size: var(--fs-14);
   font-weight: var(--fw-regular);
   line-height: 1.875;
   text-align: left;
@@ -77,10 +77,36 @@ img {
   font-weight: var(--fw-medium);
 }
 
+.title,
+.data__num,
+.small-title,
+.medium-title {
+  color: var(--clr-black);
+  font-weight: var(--fw-bold);
+}
+
 .title {
   font-size: var(--fs-20);
-  font-weight: var(--fw-bold);
-  color: var(--clr-black);
+}
+
+.data__num {
+  font-size: var(--fs-32);
+}
+
+.medium-title {
+  font-size: var(--fs-18);
+}
+
+.pledge {
+  font-weight: var(--fw-medium);
+  color: var(--clr-moderate-cyan);
+}
+
+.option--out-of-stock .small-title,
+.option--out-of-stock .pledge,
+.option--out-of-stock .text,
+.option--out-of-stock .data__num {
+  opacity: 0.5;
 }
 
 /* ================== */
