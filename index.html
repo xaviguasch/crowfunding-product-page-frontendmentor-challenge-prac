@@ -59,7 +59,7 @@
             </div>
 
             <div class="btn-area">
-              <a href="#" class="btn">Back this project</a>
+              <a href="#" class="btn" id="back-btn">Back this project</a>
               <a href="#" class="bookmark-btn">
                 <span class="bookmark-icon"
                   ><svg width="56" height="56" xmlns="http://www.w3.org/2000/svg">
@@ -76,11 +76,11 @@
           <section class="box box--b">
             <div class="data">
               <div class="data__item">
-                <h2 class="data__num">$89,914</h2>
-                <p class="text">of $100,000 backed</p>
+                <h2 class="data__num">$<span id="current-money-raised">89,914</span></h2>
+                <p class="text">of $<span id="goal-money">100,000</span> backed</p>
               </div>
               <div class="data__item">
-                <h2 class="data__num">5,007</h2>
+                <h2 id="num-backers" class="data__num">5,007</h2>
                 <p class="text">total backers</p>
               </div>
               <div class="data__item">
@@ -88,7 +88,11 @@
                 <p class="text">days left</p>
               </div>
             </div>
-            <div class="slider"></div>
+            <div class="progress-bar-area">
+              <div class="progress-bar">
+                <div class="progress-fill"></div>
+              </div>
+            </div>
           </section>
 
           <section class="box box--c">
@@ -125,7 +129,7 @@
                 <div class="option__bottom">
                   <div class="option__num">
                     <span class="data__num">101</span>
-                    <span class="text">left</span>
+                    <span id="bamboo-units-left" class="text">left</span>
                   </div>
                   <a href="#" class="btn btn-3">Select Reward</a>
                 </div>
@@ -144,7 +148,7 @@
                 </div>
                 <div class="option__bottom">
                   <div class="option__num">
-                    <span class="data__num">64</span>
+                    <span id="black-edition-units-left" class="data__num">64</span>
                     <span class="text">left</span>
                   </div>
                   <a href="#" class="btn btn-3">Select Reward</a>
@@ -168,7 +172,7 @@
                     <span class="data__num">0</span>
                     <span class="text">left</span>
                   </p>
-                  <a href="#" class="btn btn-3">Out of stock</a>
+                  <a href="#" class="btn btn--disabled">Out of stock</a>
                 </div>
               </div>
             </div>
@@ -181,7 +185,10 @@
           <div class="main__container">
             <section class="box box--c">
               <div class="box__copy">
-                <h3 class="medium-title">Back this project</h3>
+                <div class="upper-box">
+                  <h3 class="medium-title">Back this project</h3>
+                  <img id="close-modal-btn" src="./images/icon-close-modal.svg" alt="" />
+                </div>
                 <p class="text">
                   Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
                   the world?
