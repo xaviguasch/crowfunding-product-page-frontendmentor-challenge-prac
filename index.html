@@ -80,7 +80,7 @@
                 <p class="text">of $<span id="goal-money">100,000</span> backed</p>
               </div>
               <div class="data__item">
-                <h2 id="num-backers" class="data__num">5,007</h2>
+                <h2 id="num-backers" class="data__num"></h2>
                 <p class="text">total backers</p>
               </div>
               <div class="data__item">
@@ -131,7 +131,7 @@
                     <span class="data__num">101</span>
                     <span id="bamboo-units-left" class="text">left</span>
                   </div>
-                  <a href="#" class="btn btn-3">Select Reward</a>
+                  <a href="#" id="bamboo-reward-btn" class="btn btn-3">Select Reward</a>
                 </div>
               </div>
 
@@ -151,7 +151,7 @@
                     <span id="black-edition-units-left" class="data__num">64</span>
                     <span class="text">left</span>
                   </div>
-                  <a href="#" class="btn btn-3">Select Reward</a>
+                  <a href="#" id="black-ed-reward-btn" class="btn btn-3">Select Reward</a>
                 </div>
               </div>
 
@@ -197,9 +197,19 @@
 
               <div class="box__options">
                 <div class="option">
-                  <div class="option__top">
-                    <h3 class="small-title">Pledge with no reward</h3>
-                  </div>
+                  <label for="no-reward-checkbox" class="checkbox"
+                    ><input
+                      class="checkbox__input"
+                      type="checkbox"
+                      name="no-reward"
+                      id="no-reward-checkbox"
+                    />
+                    <div class="checkbox__box"></div>
+                    <div class="option__top">
+                      <h3 class="very-small-title">Pledge with no reward</h3>
+                    </div>
+                  </label>
+
                   <div class="option__copy">
                     <p class="text">
                       Choose to support us without a reward if you simply believe in our
@@ -211,7 +221,7 @@
 
                 <div class="option">
                   <div class="option__top">
-                    <h3 class="small-title">Bamboo Stand</h3>
+                    <h3 class="very-small-title">Bamboo Stand</h3>
                     <p class="pledge">Pledge $25 or more</p>
                   </div>
                   <div class="option__copy">
@@ -231,7 +241,7 @@
 
                 <div class="option">
                   <div class="option__top">
-                    <h3 class="small-title">Black Edition Stand</h3>
+                    <h3 class="very-small-title">Black Edition Stand</h3>
                     <p class="pledge">Pledge $75 or more</p>
                   </div>
                   <div class="option__copy">
@@ -251,7 +261,7 @@
 
                 <div class="option option--out-of-stock">
                   <div class="option__top">
-                    <h3 class="small-title">Mahogany Special Edition</h3>
+                    <h3 class="very-small-title">Mahogany Special Edition</h3>
                     <p class="pledge">Pledge $200 or more</p>
                   </div>
                   <div class="option__copy">
