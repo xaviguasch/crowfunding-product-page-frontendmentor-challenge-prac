@@ -1,5 +1,12 @@
 const closeModalBtn = document.querySelector('#close-modal-btn')
 const overlay = document.querySelector('#overlay')
+const overlay2 = document.querySelector('#overlay--2')
+const progressFill = document.querySelector('.progress-fill')
+const checkboxes = document.querySelectorAll('.checkbox__input')
+const noRewardCheckbox = document.querySelector('#no-reward-checkbox')
+const bambooStandCheckbox = document.querySelector('#bamboo-stand-checkbox')
+const blackEditionStandCheckbox = document.querySelector('#black-edition-stand-checkbox')
+const outOfStockCheckbox = document.querySelector('#out-of-stock-checkbox')
 
 // Unit selectors
 const currMoneySel = document.querySelector('#current-money-raised')
@@ -13,30 +20,26 @@ const mahoganySEdSel = document.querySelector('#mahogany-special-edition-units-l
 const backBtn = document.querySelector('#back-btn')
 const bambooRewardBtn = document.querySelector('#bamboo-reward-btn')
 const blackEdRewardBtn = document.querySelector('#black-ed-reward-btn')
-
-const progressFill = document.querySelector('.progress-fill')
-
-const noRewardCheckbox = document.querySelector('#no-reward-checkbox')
+const btnContinueAll = document.querySelectorAll('.btn--continue')
+const thankYouBtn = document.querySelector('#thank-you-btn')
 
 // Starting numbers and $USD
-const backers = 5007
-const currMoney = 89914
-const goalMoney = 100000
-const bambooLeft = 101
-const BEdStandLeft = 64
-const MSEdStandLeft = 0
+let backers = 5007
+let currMoney = 89914
+let goalMoney = 100000
+let bambooLeft = 101
+let BEdStandLeft = 64
+let MSEdStandLeft = 0
+
+// FUNCTIONS
 
 const showModal = () => {
   overlay.style.display = 'block'
 }
 
-backBtn.addEventListener('click', showModal)
-bambooRewardBtn.addEventListener('click', showModal)
-blackEdRewardBtn.addEventListener('click', showModal)
-
-closeModalBtn.addEventListener('click', () => {
+const closeModal = () => {
   overlay.style.display = 'none'
-})
+}
 
 // Progress bar
 const fillProgressBar = () => {
@@ -49,7 +52,15 @@ const updateBackers = () => {
   numBackersSel.textContent = backers
 }
 
+const updateOptionQty = (option) => {
+  if (option === 'bamboo-option') {
+    bambooLeft--
+    initialize()
+  }
+}
+
 const initialize = () => {
+  console.log('initialize', bambooLeft)
   numBackersSel.textContent = backers.toLocaleString('en-US')
   currMoneySel.textContent = currMoney.toLocaleString('en-US')
   goalMoneySel.textContent = goalMoney.toLocaleString('en-US')
@@ -58,16 +69,58 @@ const initialize = () => {
   mahoganySEdSel.textContent = MSEdStandLeft
 }
 
+const selectReward = (e) => {
+  if (e.target.checked) {
+    checkboxes.forEach((cb) => {
+      cb.parentElement.parentElement.classList.remove('selected')
+      cb.checked = false
+    })
+    e.target.parentElement.parentElement.classList.add('selected')
+    e.target.checked = true
+  } else {
+    e.target.parentElement.parentElement.classList.remove('selected')
+  }
+}
+
+const openThankYouModal = () => {
+  overlay2.style.display = 'block'
+}
+const closeThankYouModal = () => {
+  overlay2.style.display = 'none'
+}
+
+const confirmAndContinue = (e) => {
+  const pledgedDollars =
+    e.target.parentElement.querySelector('input[type="number"]').value
+
+  const optionSelected = e.target.parentElement.parentElement.parentElement.id
+
+  updateOptionQty(optionSelected)
+  e.target.parentElement.querySelector('input[type="number"]').value = 0
+
+  closeModal()
+
+  openThankYouModal()
+}
+
 // Fire functions at page-load
 fillProgressBar()
 initialize()
 
 // Event listeners
+backBtn.addEventListener('click', showModal)
+bambooRewardBtn.addEventListener('click', showModal)
+blackEdRewardBtn.addEventListener('click', showModal)
 
-noRewardCheckbox.addEventListener('change', (e) => {
-  if (noRewardCheckbox.checked) {
-    e.target.parentElement.parentElement.classList.add('selected')
-  } else {
-    e.target.parentElement.parentElement.classList.remove('selected')
-  }
+closeModalBtn.addEventListener('click', closeModal)
+
+noRewardCheckbox.addEventListener('change', selectReward)
+bambooStandCheckbox.addEventListener('change', selectReward)
+blackEditionStandCheckbox.addEventListener('change', selectReward)
+outOfStockCheckbox.addEventListener('change', selectReward)
+
+btnContinueAll.forEach((btnCont) => {
+  btnCont.addEventListener('click', confirmAndContinue)
 })
+
+thankYouBtn.addEventListener('click', closeThankYouModal)

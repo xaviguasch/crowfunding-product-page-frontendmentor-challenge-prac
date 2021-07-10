@@ -145,6 +145,21 @@ img {
   cursor: not-allowed;
 }
 
+.btn--continue {
+  font-size: var(--fs-14);
+  padding: 0.875em 1.925em;
+}
+
+.input-money {
+  padding: 1em 1.925em;
+  font-family: inherit;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-14);
+
+  border: 1px solid var(--clr-medium-gray);
+  border-radius: 2em;
+}
+
 .bookmark-btn {
   border: none;
   border-radius: 50%;
@@ -195,6 +210,9 @@ img {
 /* ================== */
 /* Utility styles */
 /* ================== */
+.content {
+  position: relative;
+}
 
 /* ================== */
 /* SECTIONS */
@@ -378,7 +396,8 @@ img {
 }
 
 /* Overlay */
-#overlay {
+#overlay,
+#overlay--2 {
   display: none;
 
   position: absolute;
@@ -396,6 +415,11 @@ img {
   top: 175px;
 }
 
+#modal--2 {
+  position: relative;
+  top: 250px;
+}
+
 .upper-box {
   display: flex;
   justify-content: space-between;
@@ -404,6 +428,23 @@ img {
 
 .selected.option {
   border: 2px solid var(--clr-moderate-cyan);
+}
+
+.option__enter-pledge__money {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dollar-sign {
+  position: absolute;
+  left: 12px;
+}
+
+.thank-you-modal {
+  text-align: center;
 }
 
 /* -------------------- */

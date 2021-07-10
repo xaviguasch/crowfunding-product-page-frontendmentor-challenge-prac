@@ -203,7 +203,7 @@
                   <label for="no-reward-checkbox" class="checkbox"
                     ><input
                       class="checkbox__input"
-                      type="checkbox"
+                      type="radio"
                       name="no-reward"
                       id="no-reward-checkbox"
                     />
@@ -222,11 +222,21 @@
                   </div>
                 </div>
 
-                <div class="option">
-                  <div class="option__top">
-                    <h3 class="very-small-title">Bamboo Stand</h3>
-                    <p class="pledge">Pledge $25 or more</p>
-                  </div>
+                <div id="bamboo-option" class="option">
+                  <label for="bamboo-stand-checkbox" class="checkbox"
+                    ><input
+                      class="checkbox__input"
+                      type="radio"
+                      name="bamboo-stand"
+                      id="bamboo-stand-checkbox"
+                    />
+                    <div class="checkbox__box"></div>
+                    <div class="option__top">
+                      <h3 class="very-small-title">Bamboo Stand</h3>
+                      <p class="pledge">Pledge $25 or more</p>
+                    </div>
+                  </label>
+
                   <div class="option__copy">
                     <p class="text">
                       You get an ergonomic stand made of natural bamboo. You've helped us
@@ -234,19 +244,48 @@
                       Backer member list.
                     </p>
                   </div>
+
                   <div class="option__bottom">
                     <div class="option__num">
                       <span class="data__num">101</span>
                       <span class="text">left</span>
                     </div>
                   </div>
+
+                  <div class="option__enter-pledge">
+                    <p class="text">Enter your pledge</p>
+                    <div class="option__enter-pledge__money">
+                      <input
+                        class="input-money"
+                        type="number"
+                        name="bamboo-money"
+                        id="bamboo-money-input"
+                        min="25"
+                        max="200"
+                      />
+                      <span class="dollar-sign">$</span>
+                      <a href="#" id="confirm-bamboo" class="btn btn--continue"
+                        >Continue</a
+                      >
+                    </div>
+                  </div>
                 </div>
 
                 <div class="option">
-                  <div class="option__top">
-                    <h3 class="very-small-title">Black Edition Stand</h3>
-                    <p class="pledge">Pledge $75 or more</p>
-                  </div>
+                  <label for="black-edition-stand-checkbox" class="checkbox"
+                    ><input
+                      class="checkbox__input"
+                      type="radio"
+                      name="black-edition"
+                      id="black-edition-stand-checkbox"
+                    />
+                    <div class="checkbox__box"></div>
+                    <div class="option__top">
+                      <h3 class="very-small-title">Black Edition Stand</h3>
+                      <p class="pledge">Pledge $75 or more</p>
+                    </div>
+                  </label>
+
                   <div class="option__copy">
                     <p class="text">
                       You get a Black Special Edition computer stand and a personal thank
@@ -263,10 +302,21 @@
                 </div>
 
                 <div class="option option--out-of-stock">
-                  <div class="option__top">
-                    <h3 class="very-small-title">Mahogany Special Edition</h3>
-                    <p class="pledge">Pledge $200 or more</p>
-                  </div>
+                  <label for="out-of-stock-checkbox" class="checkbox"
+                    ><input
+                      class="checkbox__input"
+                      type="radio"
+                      name="out-of-stock"
+                      id="out-of-stock-checkbox"
+                      disabled
+                    />
+                    <div class="checkbox__box"></div>
+                    <div class="option__top">
+                      <h3 class="very-small-title">Mahogany Special Edition</h3>
+                      <p class="pledge">Pledge $200 or more</p>
+                    </div>
+                  </label>
+
                   <div class="option__copy">
                     <div class="text">
                       You get two Special Edition Mahogany stands, a Backer T-Shirt, and a
@@ -282,6 +332,25 @@
                   </div>
                 </div>
               </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <div id="overlay--2">
+        <div id="modal--2">
+          <div class="main__container">
+            <section class="box thank-you-modal">
+              <img src="./images/icon-check.svg" alt="" />
+              <h3 class="medium-title">Thanks for your support!</h3>
+
+              <p class="text">
+                Your pledge brings us one step closer to sharing Mastercraft Bamboo
+                Monitor Riser worldwide. You will get an email once our campaign is
+                completed. Got it!
+              </p>
+
+              <a href="#" id="thank-you-btn" class="btn btn-3">Got It!</a>
             </section>
           </div>
         </div>
