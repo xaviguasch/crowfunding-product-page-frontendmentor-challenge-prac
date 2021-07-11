@@ -22,6 +22,7 @@ const bambooRewardBtn = document.querySelector('#bamboo-reward-btn')
 const blackEdRewardBtn = document.querySelector('#black-ed-reward-btn')
 const btnContinueAll = document.querySelectorAll('.btn--continue')
 const thankYouBtn = document.querySelector('#thank-you-btn')
+const bookmarkBtn = document.querySelector('.bookmark-btn')
 
 // Starting numbers and $USD
 let backers = 5007
@@ -52,21 +53,31 @@ const updateBackers = () => {
   numBackersSel.textContent = backers
 }
 
+const updateMoney = (pledgedMoney) => {
+  currMoney += Number(pledgedMoney)
+  currMoneySel.textContent = currMoney.toLocaleString('en-US')
+}
+
 const updateOptionQty = (option) => {
   if (option === 'bamboo-option') {
     bambooLeft--
-    initialize()
+    bambooUnitsLeftSel.textContent = bambooLeft
+  } else if (option === 'black-edition-option') {
+    BEdStandLeft--
+    blEdUnitsLeftSel.textContent = BEdStandLeft
+  } else {
+    console.log('do nothing!')
   }
 }
 
 const initialize = () => {
-  console.log('initialize', bambooLeft)
   numBackersSel.textContent = backers.toLocaleString('en-US')
   currMoneySel.textContent = currMoney.toLocaleString('en-US')
   goalMoneySel.textContent = goalMoney.toLocaleString('en-US')
   bambooUnitsLeftSel.textContent = bambooLeft
   blEdUnitsLeftSel.textContent = BEdStandLeft
   mahoganySEdSel.textContent = MSEdStandLeft
+  numBackersSel.textContent = backers
 }
 
 const selectReward = (e) => {
@@ -74,9 +85,15 @@ const selectReward = (e) => {
     checkboxes.forEach((cb) => {
       cb.parentElement.parentElement.classList.remove('selected')
       cb.checked = false
+      cb.parentElement.parentElement.querySelector(
+        '.option__enter-pledge'
+      ).style.display = 'none'
     })
     e.target.parentElement.parentElement.classList.add('selected')
     e.target.checked = true
+    e.target.parentElement.parentElement.querySelector(
+      '.option__enter-pledge'
+    ).style.display = 'block'
   } else {
     e.target.parentElement.parentElement.classList.remove('selected')
   }
@@ -93,14 +110,22 @@ const confirmAndContinue = (e) => {
   const pledgedDollars =
     e.target.parentElement.querySelector('input[type="number"]').value
 
-  const optionSelected = e.target.parentElement.parentElement.parentElement.id
-
-  updateOptionQty(optionSelected)
-  e.target.parentElement.querySelector('input[type="number"]').value = 0
+  if (pledgedDollars > 0) {
+    const optionSelected = e.target.parentElement.parentElement.parentElement.id
+    updateOptionQty(optionSelected)
+    updateBackers()
+    updateMoney(pledgedDollars)
+    fillProgressBar()
+    // Resets pledge input
+    e.target.parentElement.querySelector('input[type="number"]').value = 0
+    openThankYouModal()
+  }
 
   closeModal()
+}
 
-  openThankYouModal()
+const bookmark = () => {
+  bookmarkBtn.classList.toggle('bookmarked')
 }
 
 // Fire functions at page-load
@@ -124,3 +149,5 @@ btnContinueAll.forEach((btnCont) => {
 })
 
 thankYouBtn.addEventListener('click', closeThankYouModal)
+
+bookmarkBtn.addEventListener('click', bookmark)
