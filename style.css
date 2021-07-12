@@ -500,6 +500,10 @@ img {
 
 .option__enter-pledge {
   display: none;
+
+  border-top: 1px solid var(--clr-medium-gray-2);
+  margin-top: 2em;
+  padding-top: 1.25em;
 }
 
 .option__enter-pledge__money {
@@ -525,6 +529,10 @@ img {
   justify-content: center;
   align-items: center;
   gap: 1.5em;
+}
+
+#out-of-stock-option {
+  cursor: not-allowed;
 }
 
 /* Desktop */
@@ -659,18 +667,8 @@ img {
     padding: 2.375em 2em;
   }
 
-  .option__enter-pledge {
-    border-top: 1px solid var(--clr-medium-gray-2);
-    margin-top: 2em;
-    padding-top: 1.25em;
-  }
-
   .checkbox {
     width: 100%;
-  }
-
-  #out-of-stock-option {
-    cursor: not-allowed;
   }
 
   .option__top,
