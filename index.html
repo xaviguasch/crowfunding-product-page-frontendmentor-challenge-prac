@@ -18,37 +18,39 @@
           <img class="desktop-img" src="./images/image-hero-desktop.jpg" alt="" />
         </div>
         <header class="header">
-          <div class="header__row">
-            <div class="logo">
-              <img class="logo-img" src="./images/logo.svg" alt="" />
+          <div class="header-logo-and-nav-container">
+            <div class="header__row">
+              <div class="logo">
+                <img class="logo-img" src="./images/logo.svg" alt="" />
+              </div>
+              <button class="open-nav" aria-label="Toggle navigation">
+                <svg width="24" height="18" xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    class="svg-open"
+                    d="M24 16v2H0v-2h24zm0-8v2H0V8h24zm0-8v2H0V0h24z"
+                    fill="#FFF"
+                    fill-rule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
-            <button class="open-nav" aria-label="Toggle navigation">
-              <svg width="24" height="18" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  class="svg-open"
-                  d="M24 16v2H0v-2h24zm0-8v2H0V8h24zm0-8v2H0V0h24z"
-                  fill="#FFF"
-                  fill-rule="evenodd"
-                />
-              </svg>
-            </button>
-          </div>
 
-          <nav class="nav">
-            <button class="close-nav" aria-label="Toggle navigation">
-              <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
-                <g fill="#FFF" fill-rule="evenodd">
-                  <path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z" />
-                  <path d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z" />
-                </g>
-              </svg>
-            </button>
-            <ul class="nav-list">
-              <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Get Started</a></li>
-            </ul>
-          </nav>
+            <nav class="nav">
+              <button class="close-nav" aria-label="Toggle navigation">
+                <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+                  <g fill="#FFF" fill-rule="evenodd">
+                    <path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z" />
+                    <path d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z" />
+                  </g>
+                </svg>
+              </button>
+              <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Discover</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Get Started</a></li>
+              </ul>
+            </nav>
+          </div>
         </header>
       </section>
 
@@ -171,10 +173,9 @@
                 </div>
                 <div class="option__bottom">
                   <p class="option__num">
-                    <span
-                      id="mahogany-special-edition-units-left"
-                      class="data__num"
-                    ></span>
+                    <span id="mahogany-special-edition-units-left" class="data__num"
+                      >0</span
+                    >
                     <span class="text">left</span>
                   </p>
                   <a href="#" class="btn btn--disabled">Out of stock</a>
@@ -267,7 +268,7 @@
 
                   <div class="option__bottom">
                     <div class="option__num">
-                      <span class="data__num">101</span>
+                      <span class="data__num" id="bamboo-units-left-modal"></span>
                       <span class="text">left</span>
                     </div>
                   </div>
@@ -315,7 +316,7 @@
                   </div>
                   <div class="option__bottom">
                     <div class="option__num">
-                      <span class="data__num">64</span>
+                      <span class="data__num" id="black-ed-units-left-modal"></span>
                       <span class="text">left</span>
                     </div>
                   </div>

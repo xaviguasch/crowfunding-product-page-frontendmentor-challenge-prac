@@ -16,7 +16,9 @@ const currMoneySel = document.querySelector('#current-money-raised')
 const goalMoneySel = document.querySelector('#goal-money')
 const numBackersSel = document.querySelector('#num-backers')
 const bambooUnitsLeftSel = document.querySelector('#bamboo-units-left')
+const bambooUnitsLeftModalSel = document.querySelector('#bamboo-units-left-modal')
 const blEdUnitsLeftSel = document.querySelector('#black-edition-units-left')
+const blEdUnitsLeftModalSel = document.querySelector('#black-ed-units-left-modal')
 const mahoganySEdSel = document.querySelector('#mahogany-special-edition-units-left')
 
 // Button selectors
@@ -55,8 +57,14 @@ const openNavigation = () => {
 
 // Progress bar
 const fillProgressBar = () => {
-  const progressBarPercentage = (currMoney / goalMoney) * 100
-  progressFill.style.width = `${progressBarPercentage}%`
+  if (currMoney >= goalMoney) {
+    // Quick fix to avoid bar overflowing when the goal is surpassed. NEEDS REFACTORING
+    const progressBarPercentage = (goalMoney / goalMoney) * 100
+    progressFill.style.width = `${progressBarPercentage}%`
+  } else {
+    const progressBarPercentage = (currMoney / goalMoney) * 100
+    progressFill.style.width = `${progressBarPercentage}%`
+  }
 }
 
 const updateBackers = () => {
@@ -73,9 +81,11 @@ const updateOptionQty = (option) => {
   if (option === 'bamboo-option') {
     bambooLeft--
     bambooUnitsLeftSel.textContent = bambooLeft
+    bambooUnitsLeftModalSel.textContent = bambooLeft
   } else if (option === 'black-edition-option') {
     BEdStandLeft--
     blEdUnitsLeftSel.textContent = BEdStandLeft
+    blEdUnitsLeftModalSel.textContent = BEdStandLeft
   } else {
     console.log('do nothing!')
   }
@@ -86,7 +96,9 @@ const initialize = () => {
   currMoneySel.textContent = currMoney.toLocaleString('en-US')
   goalMoneySel.textContent = goalMoney.toLocaleString('en-US')
   bambooUnitsLeftSel.textContent = bambooLeft
+  bambooUnitsLeftModalSel.textContent = bambooLeft
   blEdUnitsLeftSel.textContent = BEdStandLeft
+  blEdUnitsLeftModalSel.textContent = BEdStandLeft
   mahoganySEdSel.textContent = MSEdStandLeft
   numBackersSel.textContent = backers
 }
