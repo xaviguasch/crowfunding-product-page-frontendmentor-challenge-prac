@@ -7,6 +7,9 @@ const noRewardCheckbox = document.querySelector('#no-reward-checkbox')
 const bambooStandCheckbox = document.querySelector('#bamboo-stand-checkbox')
 const blackEditionStandCheckbox = document.querySelector('#black-edition-stand-checkbox')
 const outOfStockCheckbox = document.querySelector('#out-of-stock-checkbox')
+const closeNav = document.querySelector('.close-nav')
+const openNav = document.querySelector('.open-nav')
+const nav = document.querySelector('.nav')
 
 // Unit selectors
 const currMoneySel = document.querySelector('#current-money-raised')
@@ -40,6 +43,14 @@ const showModal = () => {
 
 const closeModal = () => {
   overlay.style.display = 'none'
+}
+
+const closeNavigation = () => {
+  nav.classList.remove('open')
+}
+
+const openNavigation = () => {
+  nav.classList.add('open')
 }
 
 // Progress bar
@@ -151,3 +162,6 @@ btnContinueAll.forEach((btnCont) => {
 thankYouBtn.addEventListener('click', closeThankYouModal)
 
 bookmarkBtn.addEventListener('click', bookmark)
+
+closeNav.addEventListener('click', closeNavigation)
+openNav.addEventListener('click', openNavigation)
