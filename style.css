@@ -473,15 +473,23 @@ img {
   }
 
   /* Header */
+
   .mobile-img {
     display: none;
   }
 
   .desktop-img {
     display: block;
+    object-fit: contain;
+    width: 100%;
+    max-height: 400px;
   }
 
   /* Main */
+  .main__container {
+    margin: -7.5em 1.5em 0;
+  }
+
   .box {
     max-width: 730px;
     padding: 3em;
@@ -520,19 +528,20 @@ img {
 
     transform: translateX(-50%);
   }
+
+  .box__copy .text {
+    margin-top: 1.5em;
+    margin: 1.5em auto;
+  }
+
+  .option {
+    padding: 2.375em 2em;
+  }
+
+  .option__top,
+  .option__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
-
-/* -------------------- */
-/* -------------------- */
-/* -------------------- */
-/* -------------------- */
-
-/* Footer */
-
-/* .attribution {
-  font-size: 11px;
-  text-align: center;
-}
-.attribution a {
-  color: hsl(228, 45%, 44%);
-} */
